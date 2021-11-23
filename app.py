@@ -18,7 +18,7 @@ def gen_frames():
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
             img = Image.open(io.BytesIO(frame))
-            results = model(img, size=640)  # reduce size=320 for faster inference
+            results = model(img, size=320)  # reduce size=320 for faster inference
             rendered_imgs = results.render()
             buffered = io.BytesIO()
             img_base64 = Image.fromarray(rendered_imgs[0])
